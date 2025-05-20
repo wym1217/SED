@@ -1,0 +1,104 @@
+[2025-05-18 18:49:06] Storing files in experiments/Crnn5\2025-05-18_18-49-05_b84328e833d511f08568e8c829934d0a
+[2025-05-18 18:49:06] batch_size: 64
+[2025-05-18 18:49:06] data:
+[2025-05-18 18:49:06]   audio: data/dev/wav.csv
+[2025-05-18 18:49:06]   class_indice_file: data/metadata/class_label_indices.txt
+[2025-05-18 18:49:06]   label: data/dev/label.csv
+[2025-05-18 18:49:06]   stratified: true
+[2025-05-18 18:49:06] dataloader_args:
+[2025-05-18 18:49:06]   batch_size: 64
+[2025-05-18 18:49:06]   num_workers: 1
+[2025-05-18 18:49:06] early_stop: 10
+[2025-05-18 18:49:06] epochs: 100
+[2025-05-18 18:49:06] loss: BceLoss
+[2025-05-18 18:49:06] model:
+[2025-05-18 18:49:06]   args:
+[2025-05-18 18:49:06]     sample_rate: 44100
+[2025-05-18 18:49:06]   type: Crnn5
+[2025-05-18 18:49:06] num_workers: 2
+[2025-05-18 18:49:06] optimizer:
+[2025-05-18 18:49:06]   args:
+[2025-05-18 18:49:06]     lr: 0.001
+[2025-05-18 18:49:06]   type: AdamW
+[2025-05-18 18:49:06] outputpath: experiments/
+[2025-05-18 18:49:06] scheduler_args:
+[2025-05-18 18:49:06]   factor: 0.1
+[2025-05-18 18:49:06]   patience: 3
+[2025-05-18 18:49:06] 
+[2025-05-18 18:49:06] Running on device cuda
+[2025-05-18 18:49:07] AdamW (
+[2025-05-18 18:49:07] Parameter Group 0
+[2025-05-18 18:49:07]     amsgrad: False
+[2025-05-18 18:49:07]     betas: (0.9, 0.999)
+[2025-05-18 18:49:07]     capturable: False
+[2025-05-18 18:49:07]     decoupled_weight_decay: True
+[2025-05-18 18:49:07]     differentiable: False
+[2025-05-18 18:49:07]     eps: 1e-08
+[2025-05-18 18:49:07]     foreach: None
+[2025-05-18 18:49:07]     fused: None
+[2025-05-18 18:49:07]     lr: 0.001
+[2025-05-18 18:49:07]     maximize: False
+[2025-05-18 18:49:07]     weight_decay: 0.01
+[2025-05-18 18:49:07] )
+[2025-05-18 18:49:07] Crnn5(
+[2025-05-18 18:49:07]   (melspec_extractor): MelSpectrogram(
+[2025-05-18 18:49:07]     (spectrogram): Spectrogram()
+[2025-05-18 18:49:07]     (mel_scale): MelScale()
+[2025-05-18 18:49:07]   )
+[2025-05-18 18:49:07]   (db_transform): AmplitudeToDB()
+[2025-05-18 18:49:07]   (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-05-18 18:49:07]   (cnn): Sequential(
+[2025-05-18 18:49:07]     (0): Conv2d(1, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-05-18 18:49:07]     (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-05-18 18:49:07]     (2): ReLU()
+[2025-05-18 18:49:07]     (3): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2025-05-18 18:49:07]     (4): Conv2d(16, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-05-18 18:49:07]     (5): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-05-18 18:49:07]     (6): ReLU()
+[2025-05-18 18:49:07]     (7): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2025-05-18 18:49:07]     (8): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-05-18 18:49:07]     (9): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-05-18 18:49:07]     (10): ReLU()
+[2025-05-18 18:49:07]     (11): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2025-05-18 18:49:07]     (12): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-05-18 18:49:07]     (13): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-05-18 18:49:07]     (14): ReLU()
+[2025-05-18 18:49:07]     (15): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2025-05-18 18:49:07]     (16): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+[2025-05-18 18:49:07]     (17): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+[2025-05-18 18:49:07]     (18): ReLU()
+[2025-05-18 18:49:07]     (19): MaxPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0, dilation=1, ceil_mode=False)
+[2025-05-18 18:49:07]   )
+[2025-05-18 18:49:07]   (bigru): GRU(512, 256, batch_first=True, bidirectional=True)
+[2025-05-18 18:49:07]   (fc): Linear(in_features=512, out_features=10, bias=True)
+[2025-05-18 18:49:07] )
+[2025-05-18 18:49:34] Epoch 1   training_loss: 0.36  val_loss: 0.36  precision: 0.03  recall: 0.01  f1: 0.01
+[2025-05-18 18:50:08] Epoch 2   training_loss: 0.30  val_loss: 0.27  precision: 0.29  recall: 0.19  f1: 0.22
+[2025-05-18 18:50:42] Epoch 3   training_loss: 0.26  val_loss: 0.26  precision: 0.57  recall: 0.25  f1: 0.32
+[2025-05-18 18:51:15] Epoch 4   training_loss: 0.23  val_loss: 0.26  precision: 0.55  recall: 0.34  f1: 0.36
+[2025-05-18 18:51:49] Epoch 5   training_loss: 0.20  val_loss: 0.25  precision: 0.56  recall: 0.34  f1: 0.41
+[2025-05-18 18:52:16] Epoch 6   training_loss: 0.18  val_loss: 0.22  precision: 0.73  recall: 0.42  f1: 0.50
+[2025-05-18 18:52:37] Epoch 7   training_loss: 0.17  val_loss: 0.24  precision: 0.62  recall: 0.51  f1: 0.54
+[2025-05-18 18:52:57] Epoch 8   training_loss: 0.16  val_loss: 0.18  precision: 0.79  recall: 0.60  f1: 0.65
+[2025-05-18 18:53:18] Epoch 9   training_loss: 0.14  val_loss: 0.19  precision: 0.83  recall: 0.56  f1: 0.64
+[2025-05-18 18:53:45] Epoch 10   training_loss: 0.12  val_loss: 0.18  precision: 0.82  recall: 0.62  f1: 0.67
+[2025-05-18 18:54:05] Epoch 11   training_loss: 0.12  val_loss: 0.18  precision: 0.73  recall: 0.64  f1: 0.67
+[2025-05-18 18:54:27] Epoch 12   training_loss: 0.11  val_loss: 0.22  precision: 0.71  recall: 0.62  f1: 0.63
+[2025-05-18 18:54:47] Epoch 13   training_loss: 0.12  val_loss: 0.21  precision: 0.76  recall: 0.59  f1: 0.63
+[2025-05-18 18:55:22] Epoch 14   training_loss: 0.10  val_loss: 0.17  precision: 0.80  recall: 0.71  f1: 0.74
+[2025-05-18 18:55:57] Epoch 15   training_loss: 0.09  val_loss: 0.19  precision: 0.80  recall: 0.68  f1: 0.71
+[2025-05-18 18:56:33] Epoch 16   training_loss: 0.08  val_loss: 0.17  precision: 0.78  recall: 0.74  f1: 0.74
+[2025-05-18 18:56:54] Epoch 17   training_loss: 0.07  val_loss: 0.17  precision: 0.80  recall: 0.68  f1: 0.71
+[2025-05-18 18:57:15] Epoch 18   training_loss: 0.07  val_loss: 0.19  precision: 0.75  recall: 0.78  f1: 0.74
+[2025-05-18 18:57:52] Epoch 19   training_loss: 0.06  val_loss: 0.17  precision: 0.79  recall: 0.72  f1: 0.74
+[2025-05-18 18:58:29] Epoch 20   training_loss: 0.05  val_loss: 0.16  precision: 0.76  recall: 0.74  f1: 0.74
+[2025-05-18 18:59:05] Epoch 21   training_loss: 0.04  val_loss: 0.17  precision: 0.77  recall: 0.72  f1: 0.73
+[2025-05-18 18:59:39] Epoch 22   training_loss: 0.04  val_loss: 0.17  precision: 0.77  recall: 0.73  f1: 0.74
+[2025-05-18 19:00:15] Epoch 23   training_loss: 0.04  val_loss: 0.16  precision: 0.78  recall: 0.74  f1: 0.75
+[2025-05-18 19:00:54] Epoch 24   training_loss: 0.04  val_loss: 0.17  precision: 0.77  recall: 0.75  f1: 0.75
+[2025-05-18 19:01:15] Epoch 25   training_loss: 0.04  val_loss: 0.17  precision: 0.78  recall: 0.75  f1: 0.76
+[2025-05-18 19:01:41] Epoch 26   training_loss: 0.04  val_loss: 0.16  precision: 0.79  recall: 0.75  f1: 0.76
+[2025-05-18 19:02:02] Epoch 27   training_loss: 0.04  val_loss: 0.16  precision: 0.78  recall: 0.75  f1: 0.75
+[2025-05-18 19:02:22] Epoch 28   training_loss: 0.04  val_loss: 0.17  precision: 0.78  recall: 0.76  f1: 0.76
+[2025-05-18 19:02:43] Epoch 29   training_loss: 0.04  val_loss: 0.16  precision: 0.78  recall: 0.76  f1: 0.76
+[2025-05-18 19:03:03] Epoch 30   training_loss: 0.04  val_loss: 0.17  precision: 0.77  recall: 0.75  f1: 0.75
