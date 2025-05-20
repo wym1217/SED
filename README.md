@@ -30,5 +30,5 @@ python evaluate.py --prediction prediction.csv \
                    --label data/eval/label.csv \
                    --output result.txt
 ```
-
+3. 2025-05-18_18-49-05_b84328e833d511f08568e8c829934d0a 是这次测试效果最好的一次的训练结果
 
