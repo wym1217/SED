@@ -1,0 +1,12 @@
+soundfile
+tqdm
+numpy
+pandas
+torch
+scikit-learn
+tabulate
+scipy
+PyYAML
+sed_eval
+scikit-multilearn
+fire
